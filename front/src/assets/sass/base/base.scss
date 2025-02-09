@@ -13,6 +13,12 @@ a {
     text-decoration: none;
 }
 
+p {
+    span {
+        color: $orange;
+    }
+}
+
 li {
     list-style: none;
 }

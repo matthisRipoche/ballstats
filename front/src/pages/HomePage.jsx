@@ -1,10 +1,14 @@
 import BlockHeroHome from "../components/blocs/BlockHeroHome";
+import Header from "../components/Header";
 
 const HomePage = () => {
     return (
-      <main className="home-page">
-        <BlockHeroHome />
-      </main>
+      <>
+        <Header />
+        <main className="home-page">
+          <BlockHeroHome />
+        </main>
+      </>
     );
   };
   

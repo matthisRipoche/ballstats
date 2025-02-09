@@ -1,5 +1,5 @@
 import { IoIosMail } from "react-icons/io";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const BlockHeroHome = () => {
 
@@ -19,18 +19,20 @@ const BlockHeroHome = () => {
             </div>
 
             <div className="card">
-                <p>Développé par Matthis Ripoche</p>
+                <p className="top">Développé par <span>Matthis Ripoche</span></p>
                 <div className="presentation">
                     <div className="image_container">
                         <img src="/public/img/photomoi.png" alt="" />
                     </div>
                     <p>Développeur étudiant en <span>BTS SIO</span> à l’ESPL d’Angers</p>
                 </div>
-                <div>
-                    <a href="https://github.com/matthisRipoche"><p><IoIosMail color="#ff7f50" /> https://github.com/matthisRipoche</p></a>
+                <div className="contact">
+                    <a href="mailto:matthisripoche@gmail.com"><p><IoIosMail color="#ff7f50" /> Me contacter par mail</p></a>
+                    <a href="https://github.com/matthisRipoche"><p><FaGithub color="#ff7f50" /> Mon Github</p></a>
+                    <a href="https://fr.linkedin.com/in/matthis-ripoche-919a771a6"><p><FaLinkedin color="#ff7f50" /> Mon profil Linkedin</p></a>                
                 </div>
                 
-                <FaGithub color="#ff7f50" />
+                
             </div>
         </div>
     </section>

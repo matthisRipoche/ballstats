@@ -1,10 +1,14 @@
 import UserList from "../components/UserList";
+import Header from "../components/Header";
 
 const Users = () => {
   return (
-    <div>
-      <UserList />
-    </div>
+    <>
+      <Header />
+      <main className="users-page">
+        <UserList />
+      </main>
+    </>
   );
 };
 

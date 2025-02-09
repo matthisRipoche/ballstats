@@ -5,9 +5,8 @@ body {
     color: $white;
 }
 
-.wrapper {
-    width: 1200px;
-    margin: 0 auto;
+h1 {
+    margin: 0;
 }
 
 a {
@@ -16,6 +15,11 @@ a {
 
 li {
     list-style: none;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
 }
 
 .btn {

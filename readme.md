@@ -24,3 +24,7 @@ L'application doit permettre :
     -   Consultation de ses stats personnelles.
 
 ## Des
+
+## Amélioration
+
+-   Faire un mode claire ou meme changer la DA

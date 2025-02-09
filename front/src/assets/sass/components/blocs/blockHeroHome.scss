@@ -32,6 +32,9 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 400px;
         background: $gray;
         border-radius: 20px;

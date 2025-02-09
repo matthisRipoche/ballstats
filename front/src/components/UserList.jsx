@@ -5,7 +5,6 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // Charger les utilisateurs au montage du composant
     fetchUsers().then((data) => setUsers(data));
   }, []);
 

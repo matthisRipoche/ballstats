@@ -1,68 +1,83 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(""); // Réinitialise les erreurs
+    const [error, setError] = useState(null);
 
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login", {
-        email,
-        password,
-      });
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-      const { token } = response.data; // Récupération du token
-      localStorage.setItem("token", token); // Stocker le token
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-      navigate("/dashboard"); // Rediriger après connexion réussie
-    } catch (err) {
-      setError("Email ou mot de passe incorrect !");
-    }
-  };
+      try {
+          const response = await fetch(`${API_BASE_URL}/login`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+          });
 
-  return (
-    <main className="login-page">
-      <div className="content">
-        <div className="login-container">
-          <h1>Login</h1>
-          {error && <p className="error-message">{error}</p>} {/* Affichage des erreurs */}
-          <form onSubmit={handleSubmit}>
-            <div className="input-group">
-              <input
-                type="email"
-                value={email}
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+          const data = await response.json();
+
+          if (response.ok) {
+              localStorage.setItem("token", data.token);
+              alert("Connexion réussie !");
+              window.location.href = "/dashboard";
+          } else {
+              setError(data.message || "Erreur lors de la connexion");
+          }
+      } catch (error) {
+          setError("Une erreur est survenue. ", error);
+      }
+    };
+
+    return (
+        <main className="login-page">
+            <div className="content">
+                <div className="login-container">
+                    <h1>Connexion</h1>
+                    {error && <p className="error">{error}</p>}
+                    <form onSubmit={handleSubmit}>
+                        <div className="input-group">
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                placeholder="Email"
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="input-group">
+                            <input
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                placeholder="Mot de passe"
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn orange">Se connecter</button>
+                    </form>
+                    <a href="/register">Pas encore inscrit ?</a>
+                </div>
+                <div className="links">
+                    <a href="/">Retour au site</a>
+                    <a href="/forgot-password">Mot de passe oublié ?</a>
+                </div>
             </div>
-            <div className="input-group">
-              <input
-                type="password"
-                value={password}
-                placeholder="Mot de passe"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn orange">Se connecter</button>
-          </form>
-          <a href="/register">Inscription</a>
-        </div>
-        <div className="links">
-          <a href="/">Retour au site</a>
-          <a href="/forgot-password">J&apos;ai oublié mon mot de passe</a>
-        </div>
-      </div>
-    </main>
-  );
+        </main>
+    );
 };
 
 export default LoginPage;

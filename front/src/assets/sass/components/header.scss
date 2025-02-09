@@ -1,0 +1,43 @@
+header {
+    padding: 10px 0;
+    border-bottom: 1px solid $gray;
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        a {
+            color: $orange;
+            font-size: 40px;
+        }
+    }
+
+    nav.main-nav {
+        ul {
+            display: flex;
+            justify-content: left;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            a {
+                color: $white;
+                font-size: 20px;
+                padding: 10px 20px;
+                &:hover {
+                    color: $orange;
+                }
+            }
+        }
+    }
+
+    .btns {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,19 @@
+.bloc-hero_home {
+    display: flex;
+    justify-content: space-between;
+
+    .content {
+        h1 {
+            font-size: 60px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+
+            span {
+                margin-left: 150px;
+                color: $orange;
+                font-size: 80px;
+                font-weight: 700;
+            }
+        }
+    }
+}

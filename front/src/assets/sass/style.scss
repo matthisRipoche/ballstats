@@ -1,3 +1,9 @@
-body {
-    background: red;
-}
+// import de base
+@import "base/colors.scss";
+@import "base/fonts.scss";
+@import "base/base.scss";
+
+//import de components
+@import "components/header.scss";
+
+@import "components/blocs/blockHeroHome.scss";

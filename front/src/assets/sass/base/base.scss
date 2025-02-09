@@ -1,0 +1,46 @@
+body {
+    font-family: "JetBrainsMono", sans-serif;
+    background: $dark;
+    margin: 0;
+    color: $white;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    &.orange {
+        background: $orange;
+        color: $white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+            background: darken($orange, 10%);
+        }
+    }
+
+    &.white {
+        background: $white;
+        color: $orange;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+            background: darken($white, 20%);
+        }
+    }
+}

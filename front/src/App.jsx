@@ -1,20 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/users">Utilisateurs</Link></li>
-        </ul>
-      </nav>
-
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

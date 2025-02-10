@@ -19,24 +19,24 @@ const LoginPage = () => {
 
       try {
           const response = await fetch(`${API_BASE_URL}/login`, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
           });
 
           const data = await response.json();
 
           if (response.ok) {
-              localStorage.setItem("token", data.token);
-              alert("Connexion réussie !");
-              window.location.href = "/dashboard";
+            localStorage.setItem("token", data.token);
+            alert("Connexion réussie !");
+            window.location.href = "/dashboard-admin";
           } else {
-              setError(data.message || "Erreur lors de la connexion");
+            setError(data.message || "Erreur lors de la connexion");
           }
       } catch (error) {
-          setError("Une erreur est survenue. ", error);
+        setError("Une erreur est survenue. ", error);
       }
     };
 

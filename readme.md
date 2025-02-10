@@ -23,7 +23,19 @@ L'application doit permettre :
     -   Consultation de son compte.
     -   Consultation de ses stats personnelles.
 
-## Des
+## DashBoard Admin
+
+-   Users :
+    -   Afficher la liste des utilisateurs
+        -   Photo de profil
+        -   Nom
+        -   mail
+        -   Date de creation de compte
+        -   Date dernière connexion
+        -   Actions
+            -   Supprimer
+            -   Voir le profile
+            -
 
 ## Amélioration
 

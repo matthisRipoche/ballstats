@@ -5,7 +5,8 @@ body {
     color: $white;
 }
 
-h1 {
+h1,
+h2 {
     margin: 0;
 }
 
@@ -53,4 +54,9 @@ li {
             background: darken($white, 20%);
         }
     }
+}
+
+.container-admin {
+    display: flex;
+    gap: 50px;
 }

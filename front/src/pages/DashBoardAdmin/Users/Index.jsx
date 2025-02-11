@@ -1,5 +1,5 @@
-import SideBar from "../../components/SideBar";
-import UserList from "../../components/UserList";
+import SideBar from "../../../components/SideBar";
+import UserList from "../../../components/UserList";
 
 
 const DashBoardAdminUsers = () => {

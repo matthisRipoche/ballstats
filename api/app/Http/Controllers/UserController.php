@@ -29,4 +29,32 @@ class UserController extends Controller
 
         return response()->json($user, 201);
     }
+
+    // Récupérer un utilisateur par ID
+    public function show($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'Utilisateur non trouvé'], 404);
+        }
+        return response()->json($user);
+    }
+
+    // Mettre à jour un utilisateur
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'Utilisateur non trouvé'], 404);
+        }
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+        ]);
+
+        $user->update($validatedData);
+
+        return response()->json(['message' => 'Utilisateur mis à jour avec succès', 'user' => $user]);
+    }
 }

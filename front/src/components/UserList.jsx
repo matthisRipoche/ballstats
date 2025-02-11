@@ -37,9 +37,9 @@ const UserList = () => {
               <p>{user.email}</p>
               <p>{formatDate(user.created_at)}</p>
               <p>
-                <Link to="/"><FaEye color="#fff" /></Link>
+                <Link to={`/dashboard-admin/user/show/${user.id}`}><FaEye color="#fff" /></Link>
                 <Link to={`/dashboard-admin/user/edit/${user.id}`}><MdEditDocument color="#fff" /></Link>
-                <Link to="/"><FaTrash color="#fff" /></Link>
+                <Link to={`/dashboard-admin/user/delete/${user.id}`}><FaTrash color="#fff" /></Link>
               </p>
             </li>
           ))

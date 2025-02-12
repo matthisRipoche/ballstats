@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Team;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(100)->create();
+
+        Team::factory()->create([
+            'name' => "StBarthélémy d'Anjou",
+            'coach' => 1,
+        ]);
+        Team::factory(50)->create();
     }
 }

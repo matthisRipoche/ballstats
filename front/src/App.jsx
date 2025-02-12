@@ -5,6 +5,8 @@ import LoginPage from "./layout/LoginLayout";
 import RegisterPage from "./layout/RegisterLayout";
 import DashBoardAdminLayout from "./layout/DashboardAdminLayout";
 import { DashBoardAdminHome, DashBoardAdminUsers, DashBoardAdminUserEdit, DashBoardAdminUserShow, DashBoardAdminUserDelete } from "./layout/DashBoardAdmin";
+import DashBoardAdminTeams from "./layout/DashBoardAdmin/Teams/Index";
+import DashBoardAdminTeamDelete from "./layout/DashBoardAdmin/Teams/Delete";
 
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
           <Route path="user/edit/:id" element={<DashBoardAdminUserEdit />} />
           <Route path="user/show/:id" element={<DashBoardAdminUserShow />} />
           <Route path="user/delete/:id" element={<DashBoardAdminUserDelete />} />
+
+          <Route path="teams" element={<DashBoardAdminTeams />} />
+          <Route path="team/delete/:id" element={<DashBoardAdminTeamDelete />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { fetchUserbyId, fetchDeleteUser } from "../../../services/UserService";
+import { fetchUserById, fetchDeleteUser } from "../../../services/UserServices";
 import { useState, useEffect } from "react";
 import SideBar from "../../../components/SideBar";
 
@@ -10,7 +10,7 @@ const DashBoardAdminUserEdit = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchUserbyId(id).then((data) => {
+        fetchUserById(id).then((data) => {
             setUser(data);
             setLoading(false);
         });

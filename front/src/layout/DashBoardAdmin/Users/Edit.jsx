@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { fetchUserbyId, fetchEditUser } from "../../../services/UserService";
+import { fetchUserById, fetchEditUser } from "../../../services/UserServices";
 import { useState, useEffect } from "react";
 import SideBar from "../../../components/SideBar";
 
@@ -12,7 +12,7 @@ const DashBoardAdminUserEdit = () => {
 
     // Recuperer l'utilisateur par son id
     useEffect(() => {
-        fetchUserbyId(id).then((data) => {
+        fetchUserById(id).then((data) => {
             setUser(data);
             setLoading(false);
         });

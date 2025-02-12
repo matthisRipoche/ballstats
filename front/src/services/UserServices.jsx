@@ -14,7 +14,7 @@ export const fetchUsers = async () => {
 };
 
 // Récupérer un utilisateur par son id
-export const fetchUserbyId = async (id) => {
+export const fetchUserById = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/users/${id}`);
     return response.data;

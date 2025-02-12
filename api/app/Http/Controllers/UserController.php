@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    // Récupérer tous les utilisateurs
     public function index()
     {
         return User::all();
     }
 
+    // Créer un nouvel utilisateur
     public function store(Request $request)
     {
         $request->validate([
@@ -58,6 +60,7 @@ class UserController extends Controller
         return response()->json(['message' => 'Utilisateur mis à jour avec succès', 'user' => $user]);
     }
 
+    // Supprimer un utilisateur
     public function destroy($id)
     {
         $user = User::find($id);

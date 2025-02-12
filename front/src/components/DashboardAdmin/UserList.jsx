@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchUsers } from "../../services/UserService";
+import { fetchUsers } from "../../services/UserServices";
 import { Link } from "react-router-dom";
 import { MdEditDocument } from "react-icons/md";
 import { FaTrash } from "react-icons/fa";

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchUserbyId } from "../../../services/UserService";
+import { fetchUserById } from "../../../services/UserServices";
 
 const DashBoardAdminUserShow = () => {
 
@@ -9,7 +9,7 @@ const DashBoardAdminUserShow = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchUserbyId(id).then((data) => {
+        fetchUserById(id).then((data) => {
             setUser(data);
             setLoading(false);
         });

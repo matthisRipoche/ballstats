@@ -4,11 +4,8 @@ import NotFound from "./layout/NotFoundLayout";
 import LoginPage from "./layout/LoginLayout";
 import RegisterPage from "./layout/RegisterLayout";
 import DashBoardAdminLayout from "./layout/DashboardAdminLayout";
-import DashBoardAdminUsers from "./layout/DashBoardAdmin/Users/Index";
-import DashBoardAdminUserEdit from "./layout/DashBoardAdmin/Users/Edit";
-import DashBoardAdminUserShow from "./layout/DashBoardAdmin/Users/Show";
-import DashBoardAdminUserDelete from "./layout/DashBoardAdmin/Users/Delete";
-import DashBoardAdminHome from "./layout/DashBoardAdmin/Home";
+import { DashBoardAdminHome, DashBoardAdminUsers, DashBoardAdminUserEdit, DashBoardAdminUserShow, DashBoardAdminUserDelete } from "./layout/DashBoardAdmin";
+
 
 function App() {
   return (

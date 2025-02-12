@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
+import { fetchUserbyId, fetchEditUser } from "../../../services/UserService";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import SideBar from "../../../components/SideBar";
 
 const DashBoardAdminUserEdit = () => {
@@ -10,36 +10,28 @@ const DashBoardAdminUserEdit = () => {
     const [error, setError] = useState(null);
     const [message, setMessage] = useState(null);
 
-    // Récupérer les infos de l'utilisateur
+    // Recuperer l'utilisateur par son id
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/users/${id}`)
-            .then(response => {
-                setUser(response.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError("Utilisateur non trouvé", error);
-                setLoading(false);
-            });
-    }, [id]);
+        fetchUserbyId(id).then((data) => {
+            setUser(data);
+            setLoading(false);
+        });
+    }, []);
 
-    // Gérer les changements des inputs
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
 
-    // Gérer la soumission du formulaire
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage(null);
-        
-        try {
-            await axios.put(`http://localhost:8000/api/users/${id}`, user);
-            window.location.href = "/dashboard-admin/users";
-        } catch (error) {
-            setError("Erreur lors de la mise à jour.", error.response?.data);
-        }
-        
+        fetchEditUser(id, user).then((error) => {
+            if (error) {
+                setError(error);
+            } else {
+                setMessage("L'utilisateur a bien été modifié");
+                window.location.href = "/dashboard-admin/users";
+            }
+        });
     };
 
     if (loading) return <p>Chargement...</p>;

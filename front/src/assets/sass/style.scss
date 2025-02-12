@@ -1,13 +1,16 @@
 // import de base
-@import "base/colors.scss";
-@import "base/fonts.scss";
-@import "base/base.scss";
+@import 'base/colors.scss';
+@import 'base/fonts.scss';
+@import 'base/base.scss';
 
 //import de components
-@import "components/header.scss";
-@import "components/sideBar.scss";
+@import 'components/header.scss';
+@import 'components/sideBar.scss';
+@import 'components/blocs/blockHeroHome.scss';
 
-@import "components/blocs/blockHeroHome.scss";
+//import de layout
+@import 'layout/loginPage.scss';
+@import 'layout/DashboardAdmin/users.scss';
 
-@import "components/layout/loginPage.scss";
-@import "components/layout/admin/users.scss";
+//import responsive
+@import 'responsive/mobile.scss';

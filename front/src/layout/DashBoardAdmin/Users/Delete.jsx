@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { fetchUserbyId, fetchDeleteUser } from "../../../services/UserService";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import SideBar from "../../../components/SideBar";
 
 const DashBoardAdminUserEdit = () => {
@@ -8,31 +8,21 @@ const DashBoardAdminUserEdit = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({ name: "", email: "" });
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/users/${id}`)
-            .then(response => {
-                setUser(response.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setError("Utilisateur non trouvé");
-                setLoading(false);
-            });
+        fetchUserbyId(id).then((data) => {
+            setUser(data);
+            setLoading(false);
+        });
     }, [id]);
 
     const handleDelete = async () => {
-        try {
-            await axios.delete(`http://localhost:8000/api/users/${id}`);
+        fetchDeleteUser(id).then(() => {
             navigate("/dashboard-admin/users");
-        } catch (error) {
-            setError("Erreur lors de la suppression.", error.response?.data);
-        }
+        });
     };
 
     if (loading) return <p>Chargement...</p>;
-    if (error) return <p style={{ color: "red" }}>{error}</p>;
 
     return (
 

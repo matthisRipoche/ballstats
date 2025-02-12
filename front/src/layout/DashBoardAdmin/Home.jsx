@@ -1,13 +1,8 @@
-import SideBar from "../../components/SideBar";
-
 const DashBoardAdminHome = () => {
     return (
-        <>
-            <SideBar />
-            <main className="dashboard-admin-page">
-                
-            </main>
-        </>
+        <section className="dashboard-admin-home">
+            <h2>DashBoard</h2>
+        </section>
     );
 };
   

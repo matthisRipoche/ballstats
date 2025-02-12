@@ -8,6 +8,7 @@ import DashBoardAdminUsers from "./layout/DashBoardAdmin/Users/Index";
 import DashBoardAdminUserEdit from "./layout/DashBoardAdmin/Users/Edit";
 import DashBoardAdminUserShow from "./layout/DashBoardAdmin/Users/Show";
 import DashBoardAdminUserDelete from "./layout/DashBoardAdmin/Users/Delete";
+import DashBoardAdminHome from "./layout/DashBoardAdmin/Home";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard-admin" element={<DashBoardAdminLayout />} >
+          <Route index element={<DashBoardAdminHome />} />
           <Route path="users" element={<DashBoardAdminUsers />} />
           <Route path="user/edit/:id" element={<DashBoardAdminUserEdit />} />
           <Route path="user/show/:id" element={<DashBoardAdminUserShow />} />

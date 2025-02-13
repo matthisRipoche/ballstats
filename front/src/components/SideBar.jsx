@@ -8,7 +8,7 @@ const SideBar = () => {
     return (
         <div className="sidebar-container">
             <div className="sidebar-admin">
-                <h1>BallStats Admin</h1>
+                <h1>BallStats</h1>
                 <nav className="main-nav">
                     <ul>
                         <li><Link to="/dashboard-admin"><FaHome /> Home</Link></li>

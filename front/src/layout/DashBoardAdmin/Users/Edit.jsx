@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { fetchUserById, fetchEditUser } from "../../../services/UserServices";
 import { useState, useEffect } from "react";
-import SideBar from "../../../components/SideBar";
 
 const DashBoardAdminUserEdit = () => {
     const { id } = useParams();
@@ -38,39 +37,34 @@ const DashBoardAdminUserEdit = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="container-admin admin-users">
-            <SideBar />
-            <main className="dashboard-admin-page">
-                <div className="edit-user">
-                    <h1>Modifier l&apos;utilisateur {user.name}</h1>
+        <section className="edit-user">
+            <h1>Modifier l&apos;utilisateur {user.name}</h1>
 
-                    {message && <p style={{ color: "green" }}>{message}</p>}
-                    {error && <p style={{ color: "red" }}>{error}</p>}
+            {message && <p style={{ color: "green" }}>{message}</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            name="name"
-                            value={user.name}
-                            onChange={handleChange}
-                            placeholder="Nom :"
-                            required
-                        />
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="name"
+                    value={user.name}
+                    onChange={handleChange}
+                    placeholder="Nom :"
+                    required
+                />
 
-                        <input
-                            type="email"
-                            name="email"
-                            value={user.email}
-                            onChange={handleChange}
-                            placeholder="Email :"
-                            required
-                        />
+                <input
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
+                    placeholder="Email :"
+                    required
+                />
 
-                        <button className="btn orange" type="submit">Modifier</button>
-                    </form>
-                </div>
-            </main>
-        </div>
+                <button className="btn orange" type="submit">Modifier</button>
+            </form>
+        </section>
     );  
 };
 

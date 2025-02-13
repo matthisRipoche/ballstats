@@ -13,7 +13,6 @@ export const fetchTeams = async () => {
   }
 };
 
-
 // Récupérer une team par son id
 export const fetchTeamById = async (id) => {
   try {
@@ -31,5 +30,25 @@ export const fetchDeleteTeam = async (id) => {
     await axios.delete(`${API_URL}/teams/${id}`);
   } catch (error) {
     return error.response?.data;
+  }
+};
+
+// Edit un utilisateur
+export const fetchEditTeam = async (id, userData) => {
+  try {
+    await axios.put(`${API_URL}/teams/${id}`, userData);
+  } catch (error) {
+      return error.response?.data;
+  }
+}
+
+// Ajouter une nouvelle team
+export const fetchCreateTeam = async (teamData) => {
+  try {
+    const response = await axios.post(`${API_URL}/teams`, teamData);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la création de la team :", error);
+    return null;
   }
 };

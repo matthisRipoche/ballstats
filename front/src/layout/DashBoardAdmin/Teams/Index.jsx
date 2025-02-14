@@ -30,7 +30,7 @@ const DashBoardAdminTeams = () => {
     <div className="liste-teams">
       <div className="top-content">
         <h2>Les Teams</h2>
-        <Link className="btn orange" to="/dashboard-admin/team/create">Créer une team</Link>
+        <Link className="btn orange" to="/dashboard-admin/teams/create">Créer une team</Link>
       </div>
       
       <ul>
@@ -47,13 +47,13 @@ const DashBoardAdminTeams = () => {
               <p>{team.coach.name || "Chargement..."}</p>
               <p>{formatDate(team.created_at)}</p>
               <p>
-                <Link to={`/dashboard-admin/team/show/${team.id}`}>
+                <Link to={`/dashboard-admin/teams/show/${team.id}`}>
                   <FaEye color="#fff" />
                 </Link>
-                <Link to={`/dashboard-admin/team/edit/${team.id}`}>
+                <Link to={`/dashboard-admin/teams/edit/${team.id}`}>
                   <MdEditDocument color="#fff" />
                 </Link>
-                <Link to={`/dashboard-admin/team/delete/${team.id}`}>
+                <Link to={`/dashboard-admin/teams/delete/${team.id}`}>
                   <FaTrash color="#fff" />
                 </Link>
               </p>

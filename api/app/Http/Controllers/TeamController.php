@@ -66,12 +66,11 @@ class TeamController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'coach' => 'required',
         ]);
 
         $team = Team::create([
             'name' => $request->name,
-            'coach' => $request->coach,
+            'coach' => 1,
         ]);
 
         return response()->json($team, 201);

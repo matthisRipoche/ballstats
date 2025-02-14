@@ -24,17 +24,6 @@ export const fetchUserById = async (id) => {
   }
 }
 
-// Ajouter un nouvel utilisateur
-export const fetchCreateUser = async (userData) => {
-  try {
-    const response = await axios.post(`${API_URL}/users`, userData);
-    return response.data;
-  } catch (error) {
-    console.error("Erreur lors de la création de l'utilisateur :", error);
-    return null;
-  }
-};
-
 // Delete un utilisateur
 export const fetchDeleteUser = async (id) => {
   try {
@@ -47,8 +36,50 @@ export const fetchDeleteUser = async (id) => {
 // Edit un utilisateur
 export const fetchEditUser = async (id, userData) => {
   try {
-    await axios.put(`http://localhost:8000/api/users/${id}`, userData);
-} catch (error) {
+    await axios.put(`${API_URL}/users/${id}`, userData);
+  } catch (error) {
     return error.response?.data;
+  }
 }
-}
+
+// Ajouter un nouvel utilisateur
+export const fetchCreateUser = async (userData) => {
+  if (userData.password !== userData.confirmPassword) {
+    alert("Les mots de passe ne correspondent pas.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_URL}/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+      }),
+    });
+
+    // Vérifier si la réponse est OK (status 200-299)
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Erreur lors de l'inscription.");
+    }
+
+    const data = await response.json();
+
+    // Si l'API retourne un token, on le stocke pour connecter directement l'utilisateur
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
+
+    return data; // Retourne les données pour d'éventuels traitements
+
+  } catch (error) {
+    console.error("Erreur:", error.message);
+    alert(error.message); // Afficher un message clair à l'utilisateur
+  }
+};
+

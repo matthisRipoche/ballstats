@@ -10,6 +10,7 @@ import DashBoardAdminTeamDelete from "./layout/DashBoardAdmin/Teams/Delete";
 import DashBoardAdminTeamShow from "./layout/DashBoardAdmin/Teams/Show";
 import DashBoardAdminTeamEdit from "./layout/DashBoardAdmin/Teams/Edit";
 import DashBoardAdminTeamCreate from "./layout/DashBoardAdmin/Teams/Create";
+import DashBoardAdminUserCreate from "./layout/DashBoardAdmin/Users/Create";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="user/edit/:id" element={<DashBoardAdminUserEdit />} />
           <Route path="user/show/:id" element={<DashBoardAdminUserShow />} />
           <Route path="user/delete/:id" element={<DashBoardAdminUserDelete />} />
+          <Route path="user/create" element={<DashBoardAdminUserCreate />} />
 
           <Route path="teams" element={<DashBoardAdminTeams />} />
           <Route path="teams/edit/:id" element={<DashBoardAdminTeamEdit />} />
@@ -39,15 +41,3 @@ function App() {
 }
 
 export default App;
-
-
-/*
-<Route
-  path="/dashboard-admin"
-  element={
-    <ProtectedRoute>
-      <DashboardLayout />
-    </ProtectedRoute>
-  }
->
-*/

@@ -26,7 +26,7 @@ const DashBoardAdminUserEdit = () => {
 
     return (
 
-        <div className="container-admin admin-users">
+        <div className="user-delete">
             <SideBar />
             <main className="dashboard-admin-page">
                 <h2>Modifier l&apos;utilisateur</h2>

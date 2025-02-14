@@ -24,7 +24,6 @@ class TeamController extends Controller
         return response()->json($team);
     }
 
-
     // Supprimer une team
     public function destroy($id)
     {
@@ -36,22 +35,30 @@ class TeamController extends Controller
         return response()->json(['message' => 'Team supprimé avec succès']);
     }
 
-    // Mettre à jour un utilisateur
     public function update(Request $request, $id)
     {
-        $team = Team::find($id);
-        if (!$team) {
-            return response()->json(['message' => 'Utilisateur non trouvé'], 404);
+        try {
+            $team = Team::find($id);
+
+            if (!$team) {
+                return response()->json(['message' => 'Équipe non trouvée'], 404);
+            }
+
+            // Validation des données
+            $validatedData = $request->validate([
+                'name' => 'required|string|max:255',
+            ]);
+
+            // Mise à jour de l'équipe
+            $team->update($validatedData);
+
+            return response()->json([
+                'message' => 'Équipe mise à jour avec succès',
+                'team' => $team
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erreur lors de la mise à jour', 'error' => $e->getMessage()], 500);
         }
-
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-        ]);
-
-        $team->update($validatedData);
-
-        return response()->json(['message' => 'Utilisateur mis à jour avec succès', 'user' => $team]);
     }
 
     // Créer un nouvel utilisateur

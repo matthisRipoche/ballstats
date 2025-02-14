@@ -28,7 +28,11 @@ const DashBoardAdminTeams = () => {
 
   return (
     <div className="liste-teams">
-      <h2>Les Teams</h2>
+      <div className="top-content">
+        <h2>Les Teams</h2>
+        <Link className="btn orange" to="/dashboard-admin/team/create">Créer une team</Link>
+      </div>
+      
       <ul>
         <li className="titles">
           <p>Name</p>

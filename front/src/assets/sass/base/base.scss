@@ -1,62 +1,68 @@
 body {
-    font-family: "JetBrainsMono", sans-serif;
-    background: $dark;
-    margin: 0;
-    color: $white;
+   font-family: 'JetBrainsMono', sans-serif;
+   background: $dark;
+   margin: 0;
+   color: $white;
 }
 
 h1,
 h2 {
-    margin: 0;
+   margin: 0;
 }
 
 a {
-    text-decoration: none;
+   text-decoration: none;
 }
 
 p {
-    span {
-        color: $orange;
-    }
+   span {
+      color: $orange;
+   }
 }
 
 li {
-    list-style: none;
+   list-style: none;
 }
 
 .wrapper {
-    width: 1200px;
-    margin: 0 auto;
+   width: 1200px;
+   margin: 0 auto;
 }
 
 .btn {
-    display: inline-block;
-    &.orange {
-        background: $orange;
-        color: $white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        &:hover {
-            background: darken($orange, 10%);
-        }
-    }
+   display: inline-block;
+   &.orange {
+      background: $orange;
+      color: $white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+         background: darken($orange, 10%);
+      }
+   }
 
-    &.white {
-        background: $white;
-        color: $orange;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        &:hover {
-            background: darken($white, 20%);
-        }
-    }
+   &.white {
+      background: $white;
+      color: $orange;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+         background: darken($white, 20%);
+      }
+   }
 }
 
 .container-admin {
-    display: flex;
-    gap: 50px;
+   display: flex;
+   gap: 50px;
+}
+
+.ghostlink {
+   position: absolute;
+   width: 100%;
+   height: 100%;
 }
